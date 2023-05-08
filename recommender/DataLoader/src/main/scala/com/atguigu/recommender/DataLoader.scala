@@ -21,7 +21,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   * Fuhlen 富勒 M8眩光舞者时尚节能    商品名称
   * 1057,439,736                    商品分类ID，不需要
   * B009EJN4T2                      亚马逊ID，不需要
-  * https://images-cn-4.ssl-image   商品的图品URL
+  * https://images-cn-4.ssl-image   商品的图片URL
   * 外设产品|鼠标|电脑/办公           商品分类
   * 富勒|鼠标|电子产品|好用|外观漂亮   商品UGC标签
   */
@@ -45,8 +45,8 @@ case class MongoConfig( uri: String, db: String )
 
 object DataLoader {
   // 定义数据文件路径
-  val PRODUCT_DATA_PATH = "D:\\Projects\\BigData\\ECommerceRecommendSystem\\recommender\\DataLoader\\src\\main\\resources\\products.csv"
-  val RATING_DATA_PATH = "D:\\Projects\\BigData\\ECommerceRecommendSystem\\recommender\\DataLoader\\src\\main\\resources\\ratings.csv"
+  val PRODUCT_DATA_PATH = "D:\\Projects\\ECommerceRecommendSystem\\recommender\\DataLoader\\src\\main\\resources\\products.csv"
+  val RATING_DATA_PATH = "D:\\Projects\\ECommerceRecommendSystem\\recommender\\DataLoader\\src\\main\\resources\\ratings.csv"
   // 定义mongodb中存储的表名
   val MONGODB_PRODUCT_COLLECTION = "Product"
   val MONGODB_RATING_COLLECTION = "Rating"
@@ -54,7 +54,7 @@ object DataLoader {
   def main(args: Array[String]): Unit = {
     val config = Map(
       "spark.cores" -> "local[*]",
-      "mongo.uri" -> "mongodb://localhost:27017/recommender",
+      "mongo.uri" -> "mongodb://192.168.10.20:27017/recommender",
       "mongo.db" -> "recommender"
     )
     // 创建一个spark config

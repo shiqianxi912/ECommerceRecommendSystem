@@ -15,7 +15,7 @@ import org.jblas.DoubleMatrix
   * Created by wushengran on 2019/4/27 10:19
   */
 
-case class ProductRating( userId: Int, productId: Int, score: Double, timestamp: Int )
+case class ProductRating( userId: Int, productId: Int, score: Double, timestamp: BigInt )
 case class MongoConfig( uri: String, db: String )
 
 // 定义标准推荐对象
@@ -36,7 +36,7 @@ object OfflineRecommender {
   def main(args: Array[String]): Unit = {
     val config = Map(
       "spark.cores" -> "local[*]",
-      "mongo.uri" -> "mongodb://localhost:27017/recommender",
+      "mongo.uri" -> "mongodb://192.168.10.20:27017/recommender",
       "mongo.db" -> "recommender"
     )
     // 创建一个spark config

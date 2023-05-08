@@ -80,6 +80,7 @@ public class RecommenderService {
     public List<Recommendation> getCollaborativeFilteringRecommendations(UserRecommendationRequest request) {
         MongoCollection<Document> userRecsCollection = mongoClient.getDatabase(Constant.MONGODB_DATABASE).getCollection(Constant.MONGODB_USER_RECS_COLLECTION);
         Document document = userRecsCollection.find(new Document("userId", request.getUserId())).first();
+//        Document document = userRecsCollection.find(new Document("productId", request.getUserId())).first();
 
         List<Recommendation> recommendations = new ArrayList<>();
         ArrayList<Document> recs = document.get("recs", ArrayList.class);
@@ -95,6 +96,7 @@ public class RecommenderService {
     public List<Recommendation> getStreamRecommendations(UserRecommendationRequest request) {
         MongoCollection<Document> userRecsCollection = mongoClient.getDatabase(Constant.MONGODB_DATABASE).getCollection(Constant.MONGODB_STREAM_RECS_COLLECTION);
         Document document = userRecsCollection.find(new Document("userId", request.getUserId())).first();
+//        Document document = userRecsCollection.find(new Document("productId", request.getUserId())).first();
 
         List<Recommendation> recommendations = new ArrayList<>();
         ArrayList<Document> recs = document.get("recs", ArrayList.class);

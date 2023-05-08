@@ -22,8 +22,8 @@ import java.util.Properties;
  */
 public class Application {
     public static void main(String[] args) {
-        String brokers = "localhost:9092";
-        String zookeepers = "localhost:2181";
+        String brokers = "192.168.10.20:9092";
+        String zookeepers = "192.168.10.20:2181";
 
         // 定义输入和输出的topic
         String from = "log";
